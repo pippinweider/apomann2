@@ -31,7 +31,7 @@ export const Products = ({
             <div className="flex flex-col gap-12">
               {products.map((product, i) => (
                 <FeaturedProduct
-                  key={`featured-product--${i}`}
+                  key={`featured-product--${i}`}  // This key is correct.
                   cartError={setCartError}
                   setCartVisible={setCartVisible}
                   product={product}
@@ -77,8 +77,8 @@ export const Products = ({
                 {currentProduct.description}
               </p>
               <div className="grid-cols-2 grid text-titleColor my-14">
-                {((currentProduct || {}).sellingPoints || []).map((point) => (
-                  <div className="flex flex-col mb-5">
+                {((currentProduct || {}).sellingPoints || []).map((point, index) => (
+                  <div key={`selling-point-${index}`} className="flex flex-col mb-5">
                     <span className="font-bold text-2xl">{point.value}</span>
                     <span className="text-sm font-normal">{point.title}</span>
                   </div>
@@ -89,7 +89,7 @@ export const Products = ({
                 <Accordion>
                   {((currentProduct || {}).faqs || []).map((faq, i) => (
                     <AccordionItem
-                      key={`product-${currentProduct.tag}-${i}`}
+                      key={`faq-${currentProduct.tag}-${i}`}  // This key is correct.
                       title={faq.question}
                     >
                       {faq.answer}
