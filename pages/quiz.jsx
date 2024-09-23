@@ -75,7 +75,7 @@ const QuizStepSelect = ({
     <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5">
         {stepIndex != 1 && (
-          <QuizStepBack className="pt-4 inline-flex m-auto" onClick={goBack} />
+          <QuizStepBack className="pt-4 inline-flex mx-auto" onClick={goBack} />
         )}
         <h3 className="font-semibold text-lg md:text-2xl text-titleColor md:mt-16">
           {question}
@@ -157,7 +157,7 @@ const QuizStepPrompt = ({
           <div className="flex-[2] flex flex-col justify-center gap-4">
             {stepIndex != 1 && (
               <QuizStepBack
-                className="pt-4 inline-flex m-auto"
+                className="pt-4 inline-flex mx-auto"
                 onClick={goBack}
               />
             )}
@@ -211,7 +211,12 @@ const QuizStepBMI = ({
     <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5 items-center">
         <div className="flex-1 flex flex-col justify-center gap-4">
-          {stepIndex != 1 && <QuizStepBack className="pt-4" onClick={goBack} />}
+          {stepIndex != 1 && (
+            <QuizStepBack
+              className="pt-4 inline-flex mx-auto"
+              onClick={goBack}
+            />
+          )}
           <h3 className="font-semibold text-lg md:text-2xl text-titleColor md:mt-16">
             {question}
           </h3>
@@ -265,10 +270,10 @@ const QuizStepConfirmation = ({
   return (
     <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5 items-center">
-        <div className="flex-1 flex flex-col justify-center gap-4">
+        <div className="flex flex-col justify-center gap-4">
           {stepIndex != 1 && (
             <QuizStepBack
-              className="pt-4 inline-flex m-auto"
+              className="pt-4 inline-flex mx-auto"
               onClick={goBack}
             />
           )}
@@ -282,7 +287,7 @@ const QuizStepConfirmation = ({
             Erklärung
           </button>
         </div>
-        <div className="flex flex-col gap-4 w-full items-start text-left">
+        <div className="flex flex-1 flex-col gap-4 items-start justify-center text-left w-full">
           {step.items.map((option, i) => (
             <div key={`${itemKey}-o-${i}`} className="font-base">
               {option}

@@ -29,10 +29,10 @@ export const SellingPoints = () => {
         <Image src="/rating.svg" width={114} height={20} alt="Rating" />
       </div>
       <Button
-        className="absolute bottom-16 left-1/2 cursor-pointer animate-bounce"
+        className="absolute bottom-16 left-1/2 -translate-x-1/2 cursor-pointer"
         onClick={scrollToNext}
       >
-        <CaretIcon />
+        <CaretIcon className="animate-bounce" />
       </Button>
     </div>
   );
