@@ -16,7 +16,7 @@ export default function Homepage({ setCartVisible, cartState }) {
   const router = useRouter();
   const windowAvailable = waitWindow();
   const [cartError, setCartError] = useState(false);
-  const [showSubmenu, setShowSubmenu] = useState(false);
+  const [showSubmenu, setShowSubmenu] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState(0);
 

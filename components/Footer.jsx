@@ -27,7 +27,7 @@ export const Footer = () => {
         <div className="text-white flex flex-col md:flex-row gap-4 md:gap-8 items-start mb-6">
           <div className="flex-1">
             <h5 className="montserrat font-bold">APOMANN</h5>
-            <div className="hidden md:block text-gray300 text-sm mt-7">
+            <div className="hidden md:block text-gray300 text-sm mt-7 whitespace-nowrap">
               Alle Rechte vorbehalten © 2024 Deutchland
             </div>
           </div>
@@ -55,9 +55,9 @@ export const Footer = () => {
               Bedingungen und Auflagen
             </Link>
             <br />
-            <Link href="/deutschland">Deutschland</Link>
+            <Link href="/deutschland">Privacy Policy</Link>
           </div>
-          <div className="text-gray300 text-sm mt-7 md:hidden">
+          <div className="text-gray300 text-sm mt-7 md:hidden whitespace-nowrap">
             Alle Rechte vorbehalten © 2024 Deutchland
           </div>
         </div>

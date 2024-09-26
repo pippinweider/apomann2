@@ -35,6 +35,9 @@ module.exports = {
       maxHeight: {
         "1/2-screen": "50vh",
       },
+      screens: {
+        landscape: { raw: "(orientation: landscape)" },
+      },
     },
   },
   plugins: [

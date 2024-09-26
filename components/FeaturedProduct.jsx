@@ -55,7 +55,7 @@ const FeaturedProduct = ({
   let shortSellPoints = product.sellingPoints.slice(0, 2);
 
   return (
-    <AnimatedBlock className="bg-white rounded-2xl px-8 py-5 shadow-md">
+    <AnimatedBlock className="bg-white rounded-2xl px-8 py-5 shadow-md md:transition-none">
       <div className="flex gap-2 flex-col md:flex-row">
         <div className="text-titleColor flex-1">
           <div className="flex gap-2 md:flex-col items-end md:items-start flex-wrap">
@@ -100,7 +100,7 @@ const FeaturedProduct = ({
         </div>
         <div className="flex-1">
           <div
-            className="border-t border-gray500 pt-3 pb-8 text-titleColor flex flex-col gap-4"
+            className="border-t border-gray500 md:border-0 pt-3 pb-3 md:pb-8 text-titleColor flex flex-col gap-4 h-36"
             data-size
           >
             <div className="font-semibold text-xs uppercase">
@@ -144,7 +144,7 @@ const FeaturedProduct = ({
                 return (
                   <p
                     key={`product-option-${i}`}
-                    className={`text-gray500 text-sm ${
+                    className={`text-gray500 text-sm max-h-max ${
                       currentOption.dosage == value.name ? "block" : "hidden"
                     }`}
                   >

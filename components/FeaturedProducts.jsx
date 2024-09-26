@@ -21,8 +21,8 @@ const FeaturedProducts = ({
 
   return (
     <>
-      <AnimatedBlock className="w-10/12">
-        <div className="relative swiper-container-wrapper">
+      <AnimatedBlock className="w-10/12 lg:w-8/12 xl:w-2/3 2xl:w-6/12">
+        <div className="relative">
           <Swiper
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             effect={"coverflow"}

@@ -17,11 +17,14 @@ const QuizStepSimple = ({
   toggleExplanation,
 }) => {
   return (
-    <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5">
-      <div className="flex flex-1 flex-col md:w-1/2 overflow-y-auto scrollbar-none">
-        <div className="flex-[2] flex flex-col justify-center items-center gap-4">
-          {stepIndex != 1 && <QuizStepBack className="pt-4" onClick={goBack} />}
-          <h3 className="font-semibold text-lg md:text-2xl text-titleColor mt-6 md:mt-16">
+    <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
+      <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none">
+        <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
+          <QuizStepBack
+            className="-translate-x-1/2 absolute cursor-pointer left-1/2 top-20 md:top-24 z-10"
+            onClick={goBack}
+          />
+          <h3 className="font-semibold text-lg md:text-2xl text-titleColor">
             {question}
           </h3>
           <button
@@ -31,10 +34,10 @@ const QuizStepSimple = ({
             Erklärung
           </button>
         </div>
-        <div className="flex gap-8 flex-row items-center flex-[4] mt-5">
+        <div className="absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 flex gap-8 flex-col md:flex-row landscape:flex-row items-center">
           <button
             className={cn(
-              "button button--text text-black font-semibold text-xl md:text-2xl border rounded-md py-6 md:py-8 px-14 md:px-16 border-black flex-1 hover:bg-opacity-hover",
+              "button button--text text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black w-48 hover:bg-opacity-hover",
               {
                 "bg-black text-white": answer == true,
               }
@@ -45,7 +48,7 @@ const QuizStepSimple = ({
           </button>
           <button
             className={cn(
-              "button button--text text-black font-semibold text-xl md:text-2xl border rounded-md py-6 md:py-8 px-14 md:px-16 border-black flex-1 hover:bg-opacity-hover",
+              "button button--text text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black w-48 hover:bg-opacity-hover",
               {
                 "bg-black text-white": answer == false,
               }
@@ -73,69 +76,52 @@ const QuizStepSelect = ({
 }) => {
   return (
     <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
-      <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5">
-        {stepIndex != 1 && (
-          <QuizStepBack className="pt-4 inline-flex mx-auto" onClick={goBack} />
-        )}
-        <h3 className="font-semibold text-lg md:text-2xl text-titleColor md:mt-16">
-          {question}
-        </h3>
-        <button
-          className="text-gray500 text-sm underline"
-          onClick={toggleExplanation}
-        >
-          Erklärung
-        </button>
-        <div
-          className={cn(
-            "gap-x-8 flex-[4] pb-20 md:pb-24 flex flex-col justify-center",
-            {
-              "grid grid-cols-1 md:grid-cols-2": options.length > 6,
-              "flex flex-col justify-center": options.length <= 6,
-            }
-          )}
-        >
-          {options.map((option, i) => (
-            // <button
-            //   key={`${itemKey}-o-${i}`}
-            //   className={cn(
-            //     "border-t-1 border-gray400 relative text-base py-5 pl-10 text-left",
-            //     "after:content-[''] after:inline-block after:absolute after:top-1/2 after:left-1 after:-translate-y-1/2 after:rounded-full after:w-5 after:h-5 after:border after:border-gray400",
-            //     {
-            //       "before:content-[''] before:inline-block before:absolute before:top-1/2 before:left-2 before:-translate-y-1/2 before:rounded-full before:w-3 before:h-3 before:bg-accent400":
-            //         (selected || []).indexOf(option) > -1 ||
-            //         ((selected || []).length == 0 && i == 0),
-            //       "flex-grow": options.length > 4,
-            //     }
-            //   )}
-            //   onClick={() => answerEvent(option, i)}
-            // >
-            //   {option}
-            // </button>
-            <div
-              key={`${itemKey}-o-${i}`}
-              className="flex flex-row gap-4 items-center border-t-1 border-gray400 relative text-base py-5 pl-10 text-left cursor-pointer"
-              onClick={() => answerEvent(option, i)}
-            >
-              <div className="w-4 h-4 md:w-6 md:h-6 md:p-1 rounded-full border-1 border-gray-300 peer-checked:border-green peer-checked:bg-white p-0.5 shrink-0">
-                {((selected || []).indexOf(option) > -1 ||
-                  ((selected || []).length == 0 && i == 0)) && (
-                  <div className="w-full h-full bg-green rounded-full peer-checked:bg-green"></div>
-                )}
-              </div>
-              {option}
-            </div>
-          ))}
-        </div>
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white">
-          <Button
-            type="text"
-            className="text-black font-semibold text-xl md:text-2xl border rounded-md py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
-            onClick={() => setCurrentStep(stepIndex + 1)}
+      <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none">
+        <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
+          <QuizStepBack
+            className="-translate-x-1/2 absolute cursor-pointer left-1/2 top-20 md:top-24 z-10"
+            onClick={goBack}
+          />
+          <h3 className="font-semibold text-lg md:text-2xl text-titleColor">
+            {question}
+          </h3>
+          <button
+            className="text-gray500 text-sm underline"
+            onClick={toggleExplanation}
           >
-            Bestätigen
-          </Button>
+            Erklärung
+          </button>
+          <div
+            className={cn("gap-x-8 flex flex-col justify-center pt-10", {
+              "grid grid-cols-1 md:grid-cols-2": options.length > 6,
+              "flex flex-col justify-center md:w-1/2": options.length <= 6,
+            })}
+          >
+            {options.map((option, i) => (
+              <div
+                key={`${itemKey}-o-${i}`}
+                className="flex flex-row gap-4 items-center border-t-1 border-gray400 relative text-base py-5 px-10 text-left cursor-pointer"
+                onClick={() => answerEvent(option, i)}
+              >
+                <div className="w-4 h-4 md:w-6 md:h-6 md:p-1 rounded-full border-1 border-gray-300 peer-checked:border-green peer-checked:bg-white p-0.5 shrink-0">
+                  {((selected || []).indexOf(option) > -1 ||
+                    ((selected || []).length == 0 && i == 0)) && (
+                    <div className="w-full h-full bg-green rounded-full peer-checked:bg-green"></div>
+                  )}
+                </div>
+                {option}
+              </div>
+            ))}
+          </div>
         </div>
+
+        <Button
+          type="text"
+          className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+          onClick={() => setCurrentStep(stepIndex + 1)}
+        >
+          Bestätigen
+        </Button>
       </div>
     </div>
   );
@@ -145,45 +131,36 @@ const QuizStepPrompt = ({
   question,
   answerEvent,
   goBack,
-  currentStep,
   buttonText,
   stepIndex,
   toggleExplanation,
 }) => {
   return (
-    <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5">
+    <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5 items-center">
-        <div className="flex-1 flex flex-col justify-center gap-4">
-          <div className="flex-[2] flex flex-col justify-center gap-4">
-            {stepIndex != 1 && (
-              <QuizStepBack
-                className="pt-4 inline-flex mx-auto"
-                onClick={goBack}
-              />
-            )}
-            <h3 className="font-semibold text-lg md:text-2xl text-titleColor md:mt-16">
-              {question}
-            </h3>
-            <button
-              className="text-gray500 text-sm underline"
-              onClick={toggleExplanation}
-            >
-              Erklärung
-            </button>
-          </div>
+        <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
+          <QuizStepBack
+            className="-translate-x-1/2 absolute cursor-pointer left-1/2 top-20 md:top-24 z-10"
+            onClick={goBack}
+          />
+          <h3 className="font-semibold text-lg md:text-2xl text-titleColor">
+            {question}
+          </h3>
+          <button
+            className="text-gray500 text-sm underline"
+            onClick={toggleExplanation}
+          >
+            Erklärung
+          </button>
         </div>
-        {currentStep === stepIndex && (
-          <div className="flex gap-8 flex-row items-center flex-[4] mt-5">
-            <Button
-              type="text"
-              className="text-black font-semibold text-xl md:text-2xl border rounded-md py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
-              onClick={() => answerEvent(true)}
-            >
-              {buttonText}
-            </Button>
-          </div>
-        )}
       </div>
+      <Button
+        type="text"
+        className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+        onClick={() => answerEvent(true)}
+      >
+        {buttonText}
+      </Button>
     </div>
   );
 };
@@ -192,7 +169,6 @@ const QuizStepBMI = ({
   question,
   answerEvent,
   goBack,
-  currentStep,
   buttonText,
   step,
   stepIndex,
@@ -210,14 +186,12 @@ const QuizStepBMI = ({
   return (
     <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5 items-center">
-        <div className="flex-1 flex flex-col justify-center gap-4">
-          {stepIndex != 1 && (
-            <QuizStepBack
-              className="pt-4 inline-flex mx-auto"
-              onClick={goBack}
-            />
-          )}
-          <h3 className="font-semibold text-lg md:text-2xl text-titleColor md:mt-16">
+        <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
+          <QuizStepBack
+            className="-translate-x-1/2 absolute cursor-pointer left-1/2 top-20 md:top-24 z-10"
+            onClick={goBack}
+          />
+          <h3 className="font-semibold text-lg md:text-2xl text-titleColor">
             {question}
           </h3>
           <button
@@ -226,32 +200,30 @@ const QuizStepBMI = ({
           >
             Erklärung
           </button>
-        </div>
-        <div className="flex flex-col gap-4 w-full flex-[4] justify-center">
-          <Input
-            onChange={(e) => onInputChange("cm", e.target.value)}
-            label={step.cmLabel}
-            type="number"
-            suffix="CM"
-          />
-          <Input
-            onChange={(e) => onInputChange("kg", e.target.value)}
-            label={step.kgLabel}
-            type="number"
-            suffix="KG"
-          />
+          <div className="flex flex-col gap-4 w-full md:w-8/12 pt-10 justify-center">
+            <Input
+              onChange={(e) => onInputChange("cm", e.target.value)}
+              label={step.cmLabel}
+              type="number"
+              suffix="CM"
+            />
+            <Input
+              onChange={(e) => onInputChange("kg", e.target.value)}
+              label={step.kgLabel}
+              type="number"
+              suffix="KG"
+            />
+          </div>
         </div>
       </div>
-      {currentStep === stepIndex && (
-        <Button
-          type="text"
-          className="text-black font-semibold mt-5 text-xl md:text-2xl border rounded-md py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
-          onClick={() => answerEvent(true)}
-          disabled={!(values.cm && values.kg)}
-        >
-          {buttonText}
-        </Button>
-      )}
+      <Button
+        type="text"
+        className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+        onClick={() => answerEvent(true)}
+        disabled={!(values.cm && values.kg)}
+      >
+        {buttonText}
+      </Button>
     </div>
   );
 };
@@ -259,7 +231,6 @@ const QuizStepBMI = ({
 const QuizStepConfirmation = ({
   question,
   answerEvent,
-  currentStep,
   goBack,
   itemKey,
   step,
@@ -270,14 +241,12 @@ const QuizStepConfirmation = ({
   return (
     <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5 items-center">
-        <div className="flex flex-col justify-center gap-4">
-          {stepIndex != 1 && (
-            <QuizStepBack
-              className="pt-4 inline-flex mx-auto"
-              onClick={goBack}
-            />
-          )}
-          <h3 className="font-semibold text-lg md:text-2xl text-titleColor md:mt-16">
+        <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
+          <QuizStepBack
+            className="-translate-x-1/2 absolute cursor-pointer left-1/2 top-20 md:top-24 z-10"
+            onClick={goBack}
+          />
+          <h3 className="font-semibold text-lg md:text-2xl text-titleColor">
             {question}
           </h3>
           <button
@@ -286,23 +255,21 @@ const QuizStepConfirmation = ({
           >
             Erklärung
           </button>
+          <div className="flex pt-10 flex-col gap-4 items-start justify-center text-left w-full">
+            {step.items.map((option, i) => (
+              <div key={`${itemKey}-o-${i}`} className="font-base">
+                {option}
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-1 flex-col gap-4 items-start justify-center text-left w-full">
-          {step.items.map((option, i) => (
-            <div key={`${itemKey}-o-${i}`} className="font-base">
-              {option}
-            </div>
-          ))}
-        </div>
-        {currentStep === stepIndex && (
-          <Button
-            type="text"
-            className="text-black font-semibold mt-5 text-xl md:text-2xl border rounded-md py-6 md:py-8 px-10 md:px-16 border-black hover:bg-opacity-hover"
-            onClick={() => answerEvent(true)}
-          >
-            {buttonText}
-          </Button>
-        )}
+        <Button
+          type="text"
+          className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+          onClick={() => answerEvent(true)}
+        >
+          {buttonText}
+        </Button>
       </div>
     </div>
   );
@@ -401,11 +368,15 @@ export default function Quiz() {
             duration: 0.5,
             delay: 0.5,
           }}
-          className="flex flex-col h-screen items-center pb-10 pt-14 px-5"
+          className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative"
         >
-          <div className="flex flex-1 flex-col items-center md:w-1/2 overflow-y-auto scrollbar-none pt-4">
-            <div className="flex-1 flex flex-col justify-center">
-              <h2 className="font-semibold text-2xl text-titleColor mb-5 t-8 md:mt-16">
+          <div className="flex flex-1 flex-col items-center md:w-1/2 overflow-y-auto scrollbar-none">
+            <div className="flex flex-col justify-center items-center gap-4 landscape:pt-4 py-20 md:pt-28 md:pb-48 md:landscape:pt-20 md:landscape:bottom-48">
+              <QuizStepBack
+                className="-translate-x-1/2 absolute cursor-pointer left-1/2 top-20 md:top-24 z-10 invisible"
+                onClick={goBack}
+              />
+              <h2 className="font-semibold text-2xl text-titleColor">
                 Jetzt Deine Online-Diagnose starten
               </h2>
               <div className="text-titleColor font-normal text-base flex flex-col gap-4 text-center">
@@ -424,14 +395,14 @@ export default function Quiz() {
                 </p>
               </div>
             </div>
-            <Button
-              type="text"
-              className="text-black font-semibold mt-5 text-xl md:text-2xl border rounded-md py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
-              onClick={() => setCurrentStep(i + 1)}
-            >
-              Jetz starten
-            </Button>
           </div>
+          <Button
+            type="text"
+            className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+            onClick={() => setCurrentStep(i + 1)}
+          >
+            Jetz starten
+          </Button>
         </motion.div>
       );
 
@@ -451,8 +422,12 @@ export default function Quiz() {
             className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative"
           >
             <div className="flex flex-1 flex-col items-center md:w-1/2 overflow-y-auto scrollbar-none">
-              <div className="flex-1 flex flex-col justify-center">
-                <h2 className="font-semibold text-2xl text-titleColor mb-5 mt-8 md:mt-16">
+              <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
+                <QuizStepBack
+                  className="-translate-x-1/2 absolute cursor-pointer left-1/2 top-20 md:top-24 z-10"
+                  onClick={goBack}
+                />
+                <h2 className="font-semibold text-2xl text-titleColor">
                   Vielen Dank für Ihre Antworten
                 </h2>
                 <div className="text-titleColor font-normal text-base flex flex-col gap-4 text-center">
@@ -463,7 +438,7 @@ export default function Quiz() {
               </div>
               <Button
                 type="text"
-                className="text-black font-semibold text-xl md:text-2xl border rounded-md mt-5 py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+                className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
                 onClick={() => setCurrentStep(i + 1)}
               >
                 Zum bezhalung

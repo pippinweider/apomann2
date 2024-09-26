@@ -27,8 +27,8 @@ const CloseIcon = () => (
 
 const CaretIcon = ({ className }) => (
   <svg
-    width="43"
-    height="43"
+    width="32"
+    height="32"
     viewBox="0 0 32 32"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -53,14 +53,14 @@ const CaretIcon = ({ className }) => (
 
 const CaretIconSecondary = () => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="42"
-    height="42"
-    viewBox="0 0 42 42"
+    width="14"
+    height="8"
+    viewBox="0 0 14 8"
     fill="none"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M15.309 18.2434L20.8215 23.7559L26.334 18.2434"
+      d="M1.31094 1.24336L6.82344 6.75586L12.3359 1.24336"
       stroke="#898D8F"
       strokeWidth="2"
       strokeLinecap="round"

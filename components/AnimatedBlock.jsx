@@ -1,3 +1,4 @@
+import { cn } from "@nextui-org/theme";
 import { useInView } from "react-intersection-observer";
 
 const AnimatedBlock = ({ children, className }) => {
@@ -8,9 +9,10 @@ const AnimatedBlock = ({ children, className }) => {
   return (
     <div
       ref={ref}
-      className={`${className ? className : ""} ${
-        inView ? "inView" : "outOfView"
-      }`}
+      className={cn(className, {
+        inView: inView,
+        outOfView: !inView,
+      })}
     >
       {children}
     </div>

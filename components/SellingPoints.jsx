@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const SellingPoints = () => {
   const scrollToNext = () => {
-    let nextSection = document.querySelector("#produkte");
+    let nextSection = document.querySelector("#prozess");
     nextSection.scrollIntoView({ behavior: "smooth" });
   };
 

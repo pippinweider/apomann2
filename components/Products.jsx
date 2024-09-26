@@ -2,7 +2,7 @@ import FeaturedProduct from "../components/FeaturedProduct";
 import FeaturedProducts from "../components/FeaturedProducts";
 import { products } from "../utilities/consts";
 import { isMobile } from "../utilities/global";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "./Modal";
 import Button from "./Button";
 import { Accordion, AccordionItem } from "./Accordion";
@@ -15,6 +15,16 @@ export const Products = ({
   cartState,
 }) => {
   const [currentProduct, setCurrentProduct] = useState(false);
+  useEffect(() => {
+    if (currentProduct) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [currentProduct]);
 
   return (
     <div
@@ -31,12 +41,13 @@ export const Products = ({
             <div className="flex flex-col gap-12">
               {products.map((product, i) => (
                 <FeaturedProduct
-                  key={`featured-product--${i}`}  // This key is correct.
+                  key={`featured-product--${i}`} // This key is correct.
                   cartError={setCartError}
                   setCartVisible={setCartVisible}
                   product={product}
                   cartState={cartState}
                   setCurrentProduct={setCurrentProduct}
+                  setCartError={setCartError}
                 />
               ))}
             </div>
@@ -77,19 +88,24 @@ export const Products = ({
                 {currentProduct.description}
               </p>
               <div className="grid-cols-2 grid text-titleColor my-14">
-                {((currentProduct || {}).sellingPoints || []).map((point, index) => (
-                  <div key={`selling-point-${index}`} className="flex flex-col mb-5">
-                    <span className="font-bold text-2xl">{point.value}</span>
-                    <span className="text-sm font-normal">{point.title}</span>
-                  </div>
-                ))}
+                {((currentProduct || {}).sellingPoints || []).map(
+                  (point, index) => (
+                    <div
+                      key={`selling-point-${index}`}
+                      className="flex flex-col mb-5"
+                    >
+                      <span className="font-bold text-2xl">{point.value}</span>
+                      <span className="text-sm font-normal">{point.title}</span>
+                    </div>
+                  )
+                )}
               </div>
               <div className="text-titleColor">
                 <h3 className="font-semibold text-md mb-5">VIAGRA FAQs</h3>
                 <Accordion>
                   {((currentProduct || {}).faqs || []).map((faq, i) => (
                     <AccordionItem
-                      key={`faq-${currentProduct.tag}-${i}`}  // This key is correct.
+                      key={`faq-${currentProduct.tag}-${i}`} // This key is correct.
                       title={faq.question}
                     >
                       {faq.answer}
