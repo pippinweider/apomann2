@@ -1,7 +1,7 @@
 import FeaturedProduct from "../components/FeaturedProduct";
 import FeaturedProducts from "../components/FeaturedProducts";
 import { products } from "../utilities/consts";
-import { isMobile } from "../utilities/global";
+import { isMobile } from "react-device-detect";
 import { useState, useEffect } from "react";
 import Modal from "./Modal";
 import Button from "./Button";
@@ -37,7 +37,7 @@ export const Products = ({
       </h3>
       {windowAvailable && (
         <>
-          {isMobile() ? (
+          {isMobile ? (
             <div className="flex flex-col gap-12">
               {products.map((product, i) => (
                 <FeaturedProduct

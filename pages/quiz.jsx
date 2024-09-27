@@ -15,9 +15,13 @@ const QuizStepSimple = ({
   answer,
   stepIndex,
   toggleExplanation,
+  customStyle,
 }) => {
   return (
-    <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
+    <div
+      className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative"
+      style={customStyle}
+    >
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none">
         <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
           <QuizStepBack
@@ -73,9 +77,13 @@ const QuizStepSelect = ({
   stepIndex,
   setCurrentStep,
   toggleExplanation,
+  customStyle,
 }) => {
   return (
-    <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
+    <div
+      className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative"
+      style={customStyle}
+    >
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none">
         <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
           <QuizStepBack
@@ -134,9 +142,13 @@ const QuizStepPrompt = ({
   buttonText,
   stepIndex,
   toggleExplanation,
+  customStyle,
 }) => {
   return (
-    <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
+    <div
+      className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative"
+      style={customStyle}
+    >
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5 items-center">
         <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
           <QuizStepBack
@@ -173,6 +185,7 @@ const QuizStepBMI = ({
   step,
   stepIndex,
   toggleExplanation,
+  customStyle,
 }) => {
   const [values, setValues] = useState({ cm: "", kg: "" });
 
@@ -184,7 +197,10 @@ const QuizStepBMI = ({
   };
 
   return (
-    <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
+    <div
+      className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative"
+      style={customStyle}
+    >
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5 items-center">
         <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
           <QuizStepBack
@@ -237,9 +253,13 @@ const QuizStepConfirmation = ({
   stepIndex,
   buttonText,
   toggleExplanation,
+  customStyle,
 }) => {
   return (
-    <div className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative">
+    <div
+      className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative"
+      style={customStyle}
+    >
       <div className="flex flex-1 flex-col md:w-10/12 overflow-y-auto scrollbar-none gap-5 items-center">
         <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
           <QuizStepBack
@@ -355,7 +375,13 @@ export default function Quiz() {
     });
   };
 
-  const getStepEl = (step, i, setCurrentStep, toggleExplanation) => {
+  const getStepEl = (
+    step,
+    i,
+    setCurrentStep,
+    toggleExplanation,
+    customStyle
+  ) => {
     if (i === 0)
       return (
         <motion.div
@@ -368,7 +394,8 @@ export default function Quiz() {
             duration: 0.5,
             delay: 0.5,
           }}
-          className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative"
+          className="flex flex-col items-center pb-10 pt-14 px-5 relative"
+          style={customStyle}
         >
           <div className="flex flex-1 flex-col items-center md:w-1/2 overflow-y-auto scrollbar-none">
             <div className="flex flex-col justify-center items-center gap-4 landscape:pt-4 py-20 md:pt-28 md:pb-48 md:landscape:pt-20 md:landscape:bottom-48">
@@ -420,6 +447,7 @@ export default function Quiz() {
               delay: 0.5,
             }}
             className="flex flex-col h-screen items-center pb-10 pt-14 px-5 relative"
+            style={customStyle}
           >
             <div className="flex flex-1 flex-col items-center md:w-1/2 overflow-y-auto scrollbar-none">
               <div className="flex flex-col justify-center items-center gap-4 py-20 md:pt-28 md:pb-48 md:landscape:bottom-48">
@@ -460,6 +488,7 @@ export default function Quiz() {
             step={step}
             stepIndex={i}
             toggleExplanation={toggleExplanation}
+            customStyle={customStyle}
           />
         );
       case "select":
@@ -477,6 +506,7 @@ export default function Quiz() {
             stepIndex={i}
             setCurrentStep={setCurrentStep}
             toggleExplanation={toggleExplanation}
+            customStyle={customStyle}
           />
         );
       case "prompt":
@@ -491,6 +521,7 @@ export default function Quiz() {
             step={step}
             stepIndex={i}
             toggleExplanation={toggleExplanation}
+            customStyle={customStyle}
           />
         );
       case "bmi":
@@ -505,6 +536,7 @@ export default function Quiz() {
             step={step}
             stepIndex={i}
             toggleExplanation={toggleExplanation}
+            customStyle={customStyle}
           />
         );
       case "confirmation":
@@ -520,6 +552,7 @@ export default function Quiz() {
             step={step}
             stepIndex={i}
             toggleExplanation={toggleExplanation}
+            customStyle={customStyle}
           />
         );
       default:
@@ -566,20 +599,29 @@ export default function Quiz() {
     setShowExplanation(!showExplanation);
     setPopupClosed(!!showExplanation);
   };
+
   return (
-    <div className="h-screen overflow-hidden bg-offwhite w-full text-center flex flex-col">
+    <div
+      className="overflow-hidden bg-offwhite w-full text-center flex flex-col"
+      style={{
+        height: "calc(var(--vh, 1vh) * 100)",
+      }}
+    >
       <ProgressBar currentStep={currentStep} steps={steps.length} />
       <div key={`quiz-steps`} className="flex flex-col" ref={scope}>
         {steps.map((step, i) =>
-          getStepEl(step, i, setCurrentStep, toggleExplanation)
+          getStepEl(step, i, setCurrentStep, toggleExplanation, {
+            height: "calc(var(--vh, 1vh) * 100)",
+          })
         )}
       </div>
       <Modal
-        customClass="md:w-full md:h-1/2 bottom-0 top-auto p-8 md:p-16 justify-center"
+        customClass="md:w-full bottom-0 top-auto p-8 md:p-16 justify-center"
         isOpen={showExplanation}
         onClose={toggleExplanation}
         position="absolute"
         showClose={true}
+        isHalfHeight={true}
       >
         {steps[currentStep]?.explanation}
       </Modal>

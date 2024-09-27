@@ -11,6 +11,7 @@ import { Footer } from "../components/Footer";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { navItems } from "../utilities/consts";
+import useViewportHeight from "../utilities/useViewportHeight";
 
 export default function Homepage({ setCartVisible, cartState }) {
   const router = useRouter();
@@ -19,7 +20,7 @@ export default function Homepage({ setCartVisible, cartState }) {
   const [showSubmenu, setShowSubmenu] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState(0);
-
+  useViewportHeight();
   const closeCartError = () => {
     setCartError(false);
   };
@@ -84,7 +85,10 @@ export default function Homepage({ setCartVisible, cartState }) {
       <div className="relative -mt-14">
         <div
           className="h-screen bg-cover bg-center box-border flex flex-col items-center"
-          style={{ backgroundImage: "url('./wallpaper.png')" }}
+          style={{
+            height: "calc(var(--vh, 1vh) * 100)",
+            backgroundImage: "url('./wallpaper.png')",
+          }}
         >
           <SellingPoints />
         </div>

@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CloseIcon } from "./CustomIcons";
 import cn from "classnames";
+import { isDesktop } from "react-device-detect";
 
 const Modal = ({
   children,
@@ -11,13 +12,21 @@ const Modal = ({
   customProps,
   showClose,
   position = "fixed",
+  isHalfHeight,
 }) => {
   const [visible, setVisible] = useState(isOpen);
 
   useEffect(() => {
     setVisible(isOpen);
   }, [isOpen]);
-
+  useEffect(() => {
+    if (visible) {
+      document.body.classList.add("no-scroll");
+    }
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [visible]);
   return (
     <AnimatePresence mode="wait">
       {visible && (
@@ -35,7 +44,7 @@ const Modal = ({
             animate={{ translateY: 0 }}
             exit={{ translateY: "100%" }}
             className={cn(
-              "z-50 top-0 h-screen bg-white flex flex-col items-center left-0 md:left-auto md:w-1/3 right-0",
+              "overscroll-none z-50 top-0 bg-white flex flex-col items-center left-0 md:left-auto md:w-1/3 right-0",
               customClass,
               position
             )}
@@ -44,6 +53,15 @@ const Modal = ({
               duration: 0.5,
             }}
             {...customProps}
+            style={
+              isHalfHeight && isDesktop
+                ? {
+                    height: "calc(var(--vh, 1vh) * 50)",
+                  }
+                : {
+                    height: "calc(var(--vh, 1vh) * 100)",
+                  }
+            }
           >
             {showClose && (
               <button className="absolute p-5 right-0 top-0" onClick={onClose}>

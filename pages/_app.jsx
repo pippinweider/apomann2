@@ -81,7 +81,7 @@ export default function MyApp({ Component, pageProps }) {
         {cartVisible && (
           <motion.div
             key={"cart-content"}
-            className="fixed top-0 left-0 right-0 bottom-0 overflow-y-auto overflow-x-hidden z-50"
+            className="overscroll-none fixed top-0 left-0 right-0 bottom-0 overflow-y-auto overflow-x-hidden z-50"
             {...customProps}
           >
             <Cart
