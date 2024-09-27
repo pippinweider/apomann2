@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CloseIcon } from "./CustomIcons";
 import cn from "classnames";
 import { isDesktop } from "react-device-detect";
+import useViewportHeight from "../utilities/useViewportHeight";
 
 const Modal = ({
   children,
@@ -27,6 +28,7 @@ const Modal = ({
       document.body.classList.remove("no-scroll");
     };
   }, [visible]);
+  useViewportHeight();
   return (
     <AnimatePresence mode="wait">
       {visible && (

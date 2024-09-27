@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { Input } from "../components/Input";
 import { steps } from "../utilities/consts";
 import cn from "classnames";
+import useViewportHeight from "../utilities/useViewportHeight";
 
 const QuizStepSimple = ({
   question,
@@ -599,7 +600,7 @@ export default function Quiz() {
     setShowExplanation(!showExplanation);
     setPopupClosed(!!showExplanation);
   };
-
+  useViewportHeight();
   return (
     <div
       className="overflow-hidden bg-offwhite w-full text-center flex flex-col"
