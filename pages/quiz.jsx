@@ -465,13 +465,12 @@ export default function Quiz() {
                   weitergeleitet, um den Prozess abzuschließen.
                 </div>
               </div>
-              <Button
-                type="text"
+              <a
                 className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
-                onClick={() => setCurrentStep(i + 1)}
+                href="https://tracker.cmclicks000.com/click.php?key=bcetixzy6o9hugqqpxzn"
               >
                 Zum bezhalung
-              </Button>
+              </a>
             </div>
           </motion.div>
         )
@@ -603,7 +602,7 @@ export default function Quiz() {
   useViewportHeight();
   return (
     <div
-      className="overflow-hidden bg-offwhite w-full text-center flex flex-col"
+      className="overflow-hidden overscroll-none bg-offwhite w-full text-center flex flex-col"
       style={{
         height: "calc(var(--vh, 1vh) * 100)",
       }}
