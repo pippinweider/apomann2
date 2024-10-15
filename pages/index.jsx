@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 import { navItems } from "../utilities/consts";
 import useViewportHeight from "../utilities/useViewportHeight";
 
-export default function Homepage({ setCartVisible, cartState }) {
+export default function Homepage({ setCartVisible, cartState, previousPage }) {
   const router = useRouter();
   const windowAvailable = waitWindow();
   const [cartError, setCartError] = useState(false);
@@ -71,6 +71,9 @@ export default function Homepage({ setCartVisible, cartState }) {
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
+    }
+    if (previousPage == "/quiz") {
+      setCartVisible(true);
     }
   }, [router.asPath]);
 

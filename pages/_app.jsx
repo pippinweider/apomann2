@@ -5,6 +5,7 @@ import { useState } from "react";
 import useCartState from "../utilities/cart";
 import "@/styles/global.css";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const defaultAnimProps = {
   initial: { translateY: "100%" },
@@ -33,6 +34,8 @@ export default function MyApp({ Component, pageProps }) {
   const [cartVisible, setCartVisible] = useState(false);
   const [customProps, setCustomProps] = useState(defaultAnimProps);
   const cartState = useCartState();
+  const [previousPage, setPreviousPage] = useState(null);
+  const router = useRouter();
 
   const fadeCart = async () => {
     setCustomProps(fadeProps);
@@ -40,6 +43,7 @@ export default function MyApp({ Component, pageProps }) {
     setCartVisible(false);
     setCustomProps(defaultAnimProps);
   };
+
   useEffect(() => {
     if (cartVisible) {
       document.body.classList.add("no-scroll");
@@ -50,6 +54,19 @@ export default function MyApp({ Component, pageProps }) {
       document.body.classList.remove("no-scroll");
     };
   }, [cartVisible]);
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      setPreviousPage(router.asPath); // Save the current path
+    };
+
+    // Listen to route changes
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, [router.asPath]);
   return (
     <>
       <Head>
@@ -75,6 +92,7 @@ export default function MyApp({ Component, pageProps }) {
           {...pageProps}
           setCartVisible={setCartVisible}
           cartState={cartState}
+          previousPage={previousPage}
         />
       </AnimatePresence>
       <AnimatePresence mode="wait">

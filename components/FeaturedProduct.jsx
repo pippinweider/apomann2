@@ -3,6 +3,7 @@ import Image from "next/image";
 import Button from "./Button";
 import { formatMoney } from "../utilities/global";
 import AnimatedBlock from "../components/AnimatedBlock";
+import cn from "classnames";
 
 const FeaturedProduct = ({
   product,
@@ -163,9 +164,9 @@ const FeaturedProduct = ({
             </div>
             <div className="flex justify-between gap-2 text-titleColor">
               {sizeVariants.map((variant, i) => {
-                let pricePerUnit = Math.round(
-                  variant.price / variant.packSizeValue
-                );
+                let pricePerUnit =
+                  Math.round((variant.price / variant.packSizeValue) * 100) /
+                  100;
                 let active = variant.packSize == (currVariant || {}).packSize;
                 return (
                   <div
@@ -182,7 +183,12 @@ const FeaturedProduct = ({
                       defaultChecked
                       className="hidden"
                     />
-                    <label htmlFor={`size-${i}`}>
+                    <label
+                      htmlFor={`size-${i}`}
+                      className={cn({
+                        "bg-accent100": active,
+                      })}
+                    >
                       <div
                         className={`py-1 px-2  ${
                           active ? "bg-accent200 font-bold" : "bg-gray100"
@@ -191,9 +197,9 @@ const FeaturedProduct = ({
                         {variant.packSize}
                       </div>
                       <div
-                        className={`py-2 px-3 flex flex-col gap-4 font-semibold ${
-                          active ? "bg-accent100" : "bg-white"
-                        }`}
+                        className={
+                          "py-2 px-3 flex flex-col gap-4 font-semibold"
+                        }
                       >
                         <div className="">{variant.packSizeValue} St.</div>
                         <div className="">

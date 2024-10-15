@@ -33,7 +33,7 @@ const QuizStepSimple = ({
             {question}
           </h3>
           <button
-            className="text-gray500 text-sm underline"
+            className="text-gray500 text-sm underline bg-offwhite"
             onClick={toggleExplanation}
           >
             Erklärung
@@ -42,9 +42,12 @@ const QuizStepSimple = ({
         <div className="absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 flex gap-8 flex-col md:flex-row landscape:flex-row items-center">
           <button
             className={cn(
-              "button button--text text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black w-48 hover:bg-opacity-hover",
+              "button button--text font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black w-48",
               {
-                "bg-black text-white": answer == true,
+                "bg-black text-white":
+                  typeof answer !== "undefined" && answer == true,
+                "bg-offwhite text-black hover:bg-gray100":
+                  typeof answer == "undefined" || answer == false,
               }
             )}
             onClick={() => answerEvent(true)}
@@ -53,9 +56,12 @@ const QuizStepSimple = ({
           </button>
           <button
             className={cn(
-              "button button--text text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black w-48 hover:bg-opacity-hover",
+              "button button--text font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black w-48",
               {
-                "bg-black text-white": answer == false,
+                "bg-black text-white":
+                  typeof answer !== "undefined" && answer == false,
+                "bg-offwhite text-black hover:bg-gray100":
+                  typeof answer == "undefined" || answer == true,
               }
             )}
             onClick={() => answerEvent(false)}
@@ -95,16 +101,19 @@ const QuizStepSelect = ({
             {question}
           </h3>
           <button
-            className="text-gray500 text-sm underline"
+            className="text-gray500 text-sm underline bg-offwhite"
             onClick={toggleExplanation}
           >
             Erklärung
           </button>
           <div
-            className={cn("gap-x-8 flex flex-col justify-center pt-10", {
-              "grid grid-cols-1 md:grid-cols-2": options.length > 6,
-              "flex flex-col justify-center md:w-1/2": options.length <= 6,
-            })}
+            className={cn(
+              "gap-x-8 flex flex-col justify-center pt-10 bg-offwhite",
+              {
+                "grid grid-cols-1 md:grid-cols-2": options.length > 6,
+                "flex flex-col justify-center md:w-1/2": options.length <= 6,
+              }
+            )}
           >
             {options.map((option, i) => (
               <div
@@ -126,7 +135,7 @@ const QuizStepSelect = ({
 
         <Button
           type="text"
-          className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+          className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-gray100 bg-offwhite"
           onClick={() => setCurrentStep(stepIndex + 1)}
         >
           Bestätigen
@@ -160,7 +169,7 @@ const QuizStepPrompt = ({
             {question}
           </h3>
           <button
-            className="text-gray500 text-sm underline"
+            className="text-gray500 text-sm underline bg-offwhite"
             onClick={toggleExplanation}
           >
             Erklärung
@@ -169,7 +178,7 @@ const QuizStepPrompt = ({
       </div>
       <Button
         type="text"
-        className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+        className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-gray100 bg-offwhite"
         onClick={() => answerEvent(true)}
       >
         {buttonText}
@@ -212,7 +221,7 @@ const QuizStepBMI = ({
             {question}
           </h3>
           <button
-            className="text-gray500 text-sm underline"
+            className="text-gray500 text-sm underline bg-offwhite"
             onClick={toggleExplanation}
           >
             Erklärung
@@ -235,7 +244,7 @@ const QuizStepBMI = ({
       </div>
       <Button
         type="text"
-        className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+        className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-gray100 bg-offwhite"
         onClick={() => answerEvent(true)}
         disabled={!(values.cm && values.kg)}
       >
@@ -271,7 +280,7 @@ const QuizStepConfirmation = ({
             {question}
           </h3>
           <button
-            className="text-gray500 text-sm underline"
+            className="text-gray500 text-sm underline bg-offwhite"
             onClick={toggleExplanation}
           >
             Erklärung
@@ -286,7 +295,7 @@ const QuizStepConfirmation = ({
         </div>
         <Button
           type="text"
-          className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+          className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-gray100 bg-offwhite"
           onClick={() => answerEvent(true)}
         >
           {buttonText}
@@ -426,7 +435,7 @@ export default function Quiz() {
           </div>
           <Button
             type="text"
-            className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
+            className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-gray100 bg-offwhite"
             onClick={() => setCurrentStep(i + 1)}
           >
             Jetz starten

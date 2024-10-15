@@ -150,22 +150,6 @@ export default function CheckoutPage() {
             </h5>
             <div className="flex flex-col gap-2 my-5">
               <Input
-                name="city"
-                error={touched.city && errors.city}
-                label="Berlin"
-                type="text"
-                value={values.city}
-                onChange={handleChange}
-              />
-
-              <Input
-                name="postal"
-                type="text"
-                label="PLZ"
-                value={values.postal}
-                onChange={handleChange}
-              />
-              <Input
                 name="street"
                 error={touched.street && errors.street}
                 label="Strasse"
@@ -180,6 +164,21 @@ export default function CheckoutPage() {
                 type="text"
                 disabled={true}
                 value={values.streetTwo}
+                onChange={handleChange}
+              />
+              <Input
+                name="postal"
+                type="text"
+                label="PLZ"
+                value={values.postal}
+                onChange={handleChange}
+              />
+              <Input
+                name="city"
+                error={touched.city && errors.city}
+                label="Berlin"
+                type="text"
+                value={values.city}
                 onChange={handleChange}
               />
               <Input
@@ -260,12 +259,6 @@ export default function CheckoutPage() {
           </div>
           <div className="w-10/12 flex flex-col md:flex-row justify-between p-5 text-gray400 text-xs md:text-sm md:gap-8 text-center md:text-left">
             <div className="">Alle Rechte vorbehalten © 2024 Deutchland</div>
-            <div className="flex md:gap-8 flex-col md:flex-row">
-              <Link href="/deutschland">Deutschland</Link>
-              <Link href="/bedingungen-und-auflagen">
-                Bedingungen und Auflagen
-              </Link>
-            </div>
           </div>
         </>
       </Modal>

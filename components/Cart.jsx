@@ -30,15 +30,16 @@ export default function Cart({ setCartVisible, fadeCart, cartState }) {
   } = cartState || {};
   const router = useRouter();
   // Use Formik hook
+
   const formik = useFormik({
     initialValues: {
-      vorname: "",
-      nachname: "",
-      plz: "",
-      stadt: "",
-      adresse: "",
-      adresszusatz: "",
-      email: "",
+      vorname: cartState.cart.customer.vorname || "",
+      nachname: cartState.cart.customer.nachname || "",
+      plz: cartState.cart.customer.plz || "",
+      stadt: cartState.cart.customer.stadt || "",
+      adresse: cartState.cart.customer.adresse || "",
+      adresszusatz: cartState.cart.customer.adresszusatz || "",
+      email: cartState.cart.customer.email || "",
     },
     validationSchema: schema,
     onSubmit: async (values) => {
@@ -133,22 +134,6 @@ export default function Cart({ setCartVisible, fadeCart, cartState }) {
           </h5>
           <div className="flex flex-col gap-2 my-5">
             <Input
-              name="stadt"
-              error={touched.stadt && errors.stadt}
-              label="Berlin"
-              type="text"
-              value={values.stadt}
-              onChange={handleChange}
-            />
-            <Input
-              name="plz"
-              error={touched.plz && errors.plz}
-              label="PLZ"
-              type="text"
-              value={values.plz}
-              onChange={handleChange}
-            />
-            <Input
               name="adresse"
               error={touched.adresse && errors.adresse}
               label="Strasse"
@@ -162,6 +147,22 @@ export default function Cart({ setCartVisible, fadeCart, cartState }) {
               label="Hausnummer"
               type="text"
               value={values.adresszusatz}
+              onChange={handleChange}
+            />
+            <Input
+              name="plz"
+              error={touched.plz && errors.plz}
+              label="PLZ"
+              type="text"
+              value={values.plz}
+              onChange={handleChange}
+            />
+            <Input
+              name="stadt"
+              error={touched.stadt && errors.stadt}
+              label="Berlin"
+              type="text"
+              value={values.stadt}
               onChange={handleChange}
             />
             <Input
