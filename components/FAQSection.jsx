@@ -78,7 +78,7 @@ export const FAQSection = () => {
         <div className="flex flex-col flex-1">
           <h5 className="text-xs font-medium text-titleColor">FRAGEN</h5>
           <h3 className="text-3xl font-bold text-titleColor">
-            Häufig Gefragt Fragen
+            Häufig gestellte Fragen
           </h3>
           <AnimatedBlock className="md:mt-auto -order-1 md:order-none mb-10 md:mb-0 sm:flex sm:justify-center md:block">
             <Image

@@ -61,7 +61,7 @@ export default function Cart({ setCartVisible, fadeCart, cartState }) {
       >
         {items.length === 0 ? (
           <>
-            <h3 className="text-2xl font-bold">Ihre Waren</h3>
+            <h3 className="text-2xl font-bold">Dein Warenkorb</h3>
             <h3 className="md:mt-4 md:mb-2">Ihr Warenkorb ist leer</h3>
             <Button
               type={"link"}
@@ -129,7 +129,7 @@ export default function Cart({ setCartVisible, fadeCart, cartState }) {
             Lieferung
             <div className="text-xs font-normal text-gray500 flex gap-2">
               <Image src="/dhl.svg" alt="DHL logo" width={33} height={12} />
-              Versand nach Deutschland MIT DHL
+              Versand nach Deutschland mit DHL
             </div>
           </h5>
           <div className="flex flex-col gap-2 my-5">

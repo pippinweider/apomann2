@@ -285,7 +285,7 @@ const QuizStepConfirmation = ({
           >
             Erklärung
           </button>
-          <div className="flex pt-10 flex-col gap-4 items-start justify-center text-left w-full">
+          <div className="flex pt-10 flex-col gap-4 justify-center w-full">
             {step.items.map((option, i) => (
               <div key={`${itemKey}-o-${i}`} className="font-base">
                 {option}
@@ -466,19 +466,19 @@ export default function Quiz() {
                   onClick={goBack}
                 />
                 <h2 className="font-semibold text-2xl text-titleColor">
-                  Vielen Dank für Ihre Antworten
+                  Vielen Dank
                 </h2>
                 <div className="text-titleColor font-normal text-base flex flex-col gap-4 text-center">
-                  Aufgrund Ihrer Angaben qualifizieren Sie sich für die weitere
-                  Behandlung. Als nächstes werden Sie Zahlungsseite
-                  weitergeleitet, um den Prozess abzuschließen.
+                  Aufgrund Deiner Angaben qualifizierst Du dich für die
+                  Behandlung. Als nächstes werden wir Dich zur Zahlungsseite
+                  weiterleiten, um den Prozess abzuschließen.
                 </div>
               </div>
               <a
                 className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
                 href="https://tracker.cmclicks000.com/click.php?key=bcetixzy6o9hugqqpxzn"
               >
-                Zum bezhalung
+                Zum Zahlung
               </a>
             </div>
           </motion.div>

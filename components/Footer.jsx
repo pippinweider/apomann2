@@ -15,8 +15,8 @@ export const Footer = () => {
             SICHER UND GESCHÜTZT
           </h5>
           <h3 className="text-lg md:text-3xl font-bold mb-8 text-center text-titleColor">
-            Wir werden von allen relevanten <br /> Regulierungsbehörden in
-            Deutschland reguliert
+            Apomann ist durch die relevanten Institutionen in Deutschland
+            zertifiziert
           </h3>
           <div className="flex justify-evenly w-full md:justify-center items-center md:gap-24">
             <Image src="/tuv.svg" width={74} height={75} alt="Certified" />
@@ -51,11 +51,9 @@ export const Footer = () => {
           </div>
 
           <div className="flex-1 text-sm">
-            <Link href="/bedingungen-und-auflagen">
-              Bedingungen und Auflagen
-            </Link>
+            <Link href="/bedingungen-und-auflagen">AGB</Link>
             <br />
-            <Link href="/deutschland">Privacy Policy</Link>
+            <Link href="/deutschland">Datenschutz</Link>
           </div>
           <div className="text-gray300 text-sm mt-7 md:hidden whitespace-nowrap">
             Alle Rechte vorbehalten © 2024 Deutchland

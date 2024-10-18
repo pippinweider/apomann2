@@ -590,7 +590,7 @@ export const products = [
 export const marqueeItems = [
   "Kostenfreie und schnelle Lieferung",
   "Klimaneutraler Lieferung",
-  "Versand nach Deutschland und in die Schweiz",
+  "Versand nach Deutschland",
 ];
 
 export const navItems = [
@@ -622,7 +622,7 @@ export const reviews = [
   {
     stars: 4,
     title: "SEHR GUT",
-    description: "Statt mir Gedanken zu machen, habe ich einfach Sex",
+    description: "Statt mir Gedanken zu machen, habe ich einfach Sex.",
   },
   {
     stars: 4,
@@ -650,7 +650,7 @@ export const faqs = [
   {
     question: "Wie wird Erektile Dysfunktion behandelt?",
     answer:
-      "Es gibt viele effektive Behandlungen für ED. Dazu gehören Medikamente wie Viagra, psychologische Beratung, Änderungen des Lebensstils wie Gewichtsreduktion und Raucherentwöhnung sowie physikalische Therapien. In einigen Fällen können mechanische Hilfsmittel oder chirurgische Eingriffe in Betracht gezogen werden. Sprechen Sie mit einem Arzt, um die beste Behandlung zu finden.",
+      "Es gibt viele effektive Behandlungen für ED. Dazu gehören Medikamente wie Viagra, psychologische Beratung, Änderungen des Lebensstils wie Gewichtsreduktion und Raucherentwöhnung sowie physische Therapien. In einigen Fällen können mechanische Hilfsmittel oder chirurgische Eingriffe in Betracht gezogen werden. Sprechen Sie mit einem Arzt, um die beste Behandlung zu finden.",
   },
   {
     question: "Welche Medikamente stehen zur Behandlung von ED zur Verfügung?",
@@ -682,14 +682,14 @@ export const steps = [
       "Haben Sie regelmässig Schwierigkeiten eine Erektion zu bekommen oder zu halten?",
     type: "simple",
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
       "Hast Du seit mehr als einem Jahr Schwierigkeiten mit der Erektion?",
     type: "simple",
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
@@ -703,7 +703,7 @@ export const steps = [
       "(Fast) Immer",
     ],
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
@@ -717,7 +717,7 @@ export const steps = [
       "(Fast) Immer",
     ],
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
@@ -732,21 +732,21 @@ export const steps = [
       "Sehr zufriede",
     ],
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
       "Hast Du manchmal keine Probleme mit der Erektion? Beispielsweise beim morgendlichen Erwachen, beim Masturbieren oder beim Geschlechtsverkehr?",
     type: "simple",
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
       "Du solltest innerhalb des letzten Jahres einen Blutdrucktest gemacht haben um die folgenden Fragen zu beantworten. Am besten lässt Du regelmäßig Deinen Blutdruck durch Ärzte, Krankenpflegepersonal oder Apotheker messen.",
     type: "prompt",
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
     buttonText: "Habe ich verstanden",
   },
   {
@@ -758,30 +758,30 @@ export const steps = [
       "Hoch - Über 140/90",
     ],
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
       "Wir benötigen Deine Körpergröße und Dein Gewicht, um Deinen aktuellen BMI-Wert zu berechnen.",
     type: "bmi",
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
     cmLabel: "Bitte gib Deine Größe in Zentimeter (cm) ein:",
     kgLabel: "Bitte gib Dein Gewicht in Kilogramm ein:",
     buttonText: "Bestätigen",
   },
   {
     question:
-      "Trinkst Du regelmäßig größere Mengen Alkohol? (mehr als 1,5 Liter Bier oder 0,75 Liter Wein)",
+      "Trinkst Du regelmäßig größere Mengen Alkohol? (mehr als 1,5 Liter Bier oder 0,75 Liter Wein pro Tag)",
     type: "simple",
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question: "Rauchst Du regelmäßig?",
     type: "simple",
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
@@ -804,7 +804,7 @@ export const steps = [
       "Creutzfeldt-Jakob-Krankheit und damit verbundene Erkrankungen (z. B. BSE, TSE)",
     ],
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
     multiple: true,
   },
   {
@@ -817,7 +817,7 @@ export const steps = [
       "Prädiabetes",
     ],
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
@@ -832,13 +832,13 @@ export const steps = [
       "Ketoconazol, Itraconazol oder andere Anti-Pilz Medikamente",
       "Chemische ‚Partydrogen‘, insbesonders Amyl Nitrate (Poppers)",
       "Alpha-Blocker (werden zum Teil bei Bluthochdruck oder Prostatavergrößerung eingesetzt) wie zum Beispiel Alfuzosin, Doxazosin, Indoramin, Prazosin, Tamsulosin oder Terazosin",
-      "starke und moderate CYP3A4-Inhibitoren",
+      "Starke und moderate CYP3A4-Inhibitoren",
       "Erythromycin, Clarithromycin oder Telithromycin bei bakteriellen Infektionen",
       "Tacrolimus (u. A. nach Organtransplantationen)",
       "Nefazodon (Antidepressivum)",
     ],
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
     multiple: true,
   },
   {
@@ -846,15 +846,15 @@ export const steps = [
       "Wurde Dir durch einen Mediziner empfohlen, starke körperliche Anstrengungen zu vermeiden? Zum Beispiel wegen ernsthaften Herzerkrankungen oder Herzschmerz (Angina pectoris oder Instabile Angina)?",
     type: "simple",
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     question:
       "Bitte gib das Geschlecht an, welches Dir bei Deiner Geburt zugeordnet wurde.",
     type: "select",
-    options: ["Weiblich", "Männlich", "Intersexuell"],
+    options: ["Männlich", "Weiblich", "Intersexuell"],
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   {
     type: "confirmation",
@@ -868,7 +868,7 @@ export const steps = [
     ],
     buttonText: "Ich verstehe und bestätige",
     explanation:
-      "Diese Frage hilft uns zu verstehen, ob Sie tatsächlich unter Erektionsproblemen leiden. Dies ist wichtig, um die richtige Behandlung für Sie zu finden.",
+      "Diese Frage hilft uns zu verstehen, ob Du tatsächlich unter Erektionsproblemen leidest. Dies ist wichtig, um die richtige Behandlung für Dich zu finden.",
   },
   "last",
 ];

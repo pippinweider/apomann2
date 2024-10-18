@@ -6,7 +6,7 @@ export function CartItem({ product, removeFromCart }) {
   return (
     <div className="md:w-10/12 flex flex-col gap-5">
       <div className="text-titleColor flex justify-between">
-        <h3 className="text-2xl font-bold">Ihre Waren</h3>
+        <h3 className="text-2xl font-bold">Dein Warenkorb</h3>
         {removeFromCart && (
           <Button
             type="text"
