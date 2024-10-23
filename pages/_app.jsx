@@ -77,6 +77,7 @@ export default function MyApp({ Component, pageProps }) {
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link href="/favicon.ico" rel="icon" />
         <link
           href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
           rel="stylesheet"
