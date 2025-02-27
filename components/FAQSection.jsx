@@ -6,6 +6,7 @@ import AnimatedBlock from "../components/AnimatedBlock";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { isMobile } from "react-device-detect";
 
 export const FAQSection = () => {
   return (
@@ -80,22 +81,13 @@ export const FAQSection = () => {
           <h3 className="text-3xl font-bold text-titleColor">
             Häufig gestellte Fragen
           </h3>
-          <AnimatedBlock className="md:mt-auto -order-1 md:order-none mb-10 md:mb-0 sm:flex sm:justify-center md:block">
+          <AnimatedBlock className="md:mt-auto -order-1 md:order-none mb-10 md:mb-0 flex justify-center md:block">
             <Image
-              src="/back-mobile.png"
-              width={350}
-              height={350}
+              src="/pill.png"
+              width={isMobile ? 150 : 250}
+              height={isMobile ? 150 : 250}
               style={{ height: "auto" }}
               alt="Frequently Asked Questions"
-              className="w-full sm:w-auto md:hidden"
-            />
-            <Image
-              src="/back.png"
-              width={350}
-              height={350}
-              style={{ height: "auto" }}
-              alt="Frequently Asked Questions"
-              className="hidden md:block"
             />
           </AnimatedBlock>
         </div>

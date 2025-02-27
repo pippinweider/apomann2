@@ -1,7 +1,6 @@
 import { waitWindow } from "../utilities/global";
 import { useState } from "react";
 import { FAQSection } from "../components/FAQSection";
-import { SellingPointsSecondary } from "../components/SellingPointsSecondary";
 import { Marquee } from "../components/Marquee";
 import { SellingPoints } from "../components/SellingPoints";
 import { StickyNav } from "../components/StickyNav";
@@ -12,6 +11,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { navItems } from "../utilities/consts";
 import useViewportHeight from "../utilities/useViewportHeight";
+import { isMobile } from "react-device-detect";
 
 export default function Homepage({ setCartVisible, cartState, previousPage }) {
   const router = useRouter();
@@ -87,16 +87,17 @@ export default function Homepage({ setCartVisible, cartState, previousPage }) {
       />
       <div className="relative -mt-14">
         <div
-          className="h-screen bg-cover bg-center box-border flex flex-col items-center"
+          className="box-border flex flex-col items-center md:bg-contain bg-contain bg-no-repeat"
           style={{
             height: "calc(var(--vh, 1vh) * 100)",
-            backgroundImage: "url('./wallpaper.png')",
+            backgroundImage:
+              "url('./wallpaper.png'), linear-gradient(to bottom, #213569, #154a95)",
+            backgroundPosition: "center 80%",
           }}
         >
           <SellingPoints />
         </div>
         <Marquee />
-        <SellingPointsSecondary />
         <Products
           setCartVisible={setCartVisible}
           setCartError={setCartError}

@@ -56,7 +56,14 @@ const FeaturedProduct = ({
   let shortSellPoints = product.sellingPoints.slice(0, 2);
 
   return (
-    <AnimatedBlock className="bg-white rounded-2xl px-8 py-5 shadow-md md:transition-none">
+    <AnimatedBlock
+      className={cn(
+        "bg-white rounded-2xl px-8 py-5 md:transition-none relative",
+        {
+          "shadow-[inset_0_0px_5px_2px_rgb(82,190,83)]": !!product.preisBombe,
+        }
+      )}
+    >
       <div className="flex gap-2 flex-col md:flex-row">
         <div className="text-titleColor flex-1">
           <div className="flex gap-2 md:flex-col items-end md:items-start flex-wrap">
@@ -229,11 +236,19 @@ const FeaturedProduct = ({
               })}
             </div>
           </div>
-          <div
-            className="w-full md:w-auto inline-flex items-center justify-center rounded-xl px-10 py-4 text-base bg-navy cursor-pointer"
-            onClick={addProductToCart}
-          >
-            Bestellen
+          <div className="relative w-full md:w-auto inline-flex">
+            {product.preisBombe && (
+              <div className="absolute bg-green flex items-center justify-center p-8 right-0 rounded-full size-16 text-xs text-center top-0 translate-x-5 md:translate-x-1/2 -translate-y-1/2">
+                Preis Bombe
+              </div>
+            )}
+
+            <div
+              className="w-full md:w-auto inline-flex items-center justify-center rounded-xl px-10 py-4 text-base bg-navy cursor-pointer"
+              onClick={addProductToCart}
+            >
+              Bestellen
+            </div>
           </div>
         </div>
       </div>

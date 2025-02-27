@@ -151,6 +151,7 @@ export const products = [
     title: "Sildenafil",
     subtitle: "Sildenafil",
     tag: "DER SPARFUCHS",
+    preisBombe: true,
     description:
       "Sildenafil ist der aktive Wirkstoff in Viagra und dient der Behandlung der erektilen Dysfunktion. Es hilft, eine Erektion zu erreichen und aufrechtzuerhalten, indem es die Durchblutung des Penis erhöht. Die Wirkung tritt etwa 30 bis 60 Minuten nach der Einnahme ein und hält ungefähr 4 bis 6 Stunden an. Sildenafil wird nach Bedarf eingenommen, üblicherweise einmal täglich.",
     images: ["/Sildenafil_1A_50mg.webp"],
@@ -444,6 +445,7 @@ export const products = [
     title: "Tadalafil",
     subtitle: "Tadalafil",
     tag: "Die günstige Langzeitlösung",
+    preisBombe: true,
     description:
       "Tadalafil ist der Wirkstoff in Cialis und wird zur Behandlung der erektilen Dysfunktion eingesetzt. Es hilft, eine Erektion zu erreichen und aufrechtzuerhalten, indem es die Durchblutung des Penis verbessert. Die Wirkung beginnt etwa 30 Minuten nach der Einnahme und kann bis zu 36 Stunden anhalten, was eine spontane sexuelle Aktivität ermöglicht. Tadalafil kann flexibel entweder täglich in niedriger Dosierung oder nach Bedarf eingenommen werden.",
     images: ["/Tadalafil_1A_10mg.webp"],
@@ -588,9 +590,9 @@ export const products = [
 ];
 
 export const marqueeItems = [
-  "Kostenfreie und schnelle Lieferung",
-  "Klimaneutraler Lieferung",
-  "Versand nach Deutschland",
+  "1. SCHRITT: MEDIKAMENT WÄHLEN. Wähle ein sicheres und zugelassenes Medikament",
+  "2. SCHRITT: KURZEN FRAGEBOGEN BEANTWORTEN. Diese Fragen helfen uns, deine gesundheitliche Situation einzuschätzen.",
+  "3. SCHRITT: SCHNELLE LIEFERUNG. Das Medikament wird schnell und diskret an deine Wunschadresse geliefert.",
 ];
 
 export const navItems = [
