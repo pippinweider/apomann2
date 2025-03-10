@@ -326,7 +326,7 @@ export default function Quiz() {
   const [currentStep, setCurrentStep] = useState(-1);
   const [answers, setAnswers] = useState({});
   const router = useRouter();
-  const { query } = router;
+
   const goBack = () => {
     let newCurrentStep = currentStep - 1;
     if (newCurrentStep < 0) {
@@ -376,7 +376,9 @@ export default function Quiz() {
         goNext: false,
       });
       window.open(
-        `https://tracker.cmclicks000.com/click.php?key=bcetixzy6o9hugqqpxzn&t1={${query.t1}}&t2={${query.t2}}&t3={${query.t3}}&t4={${query.t4}}&t5={${query.t5}}&t6={${query.t6}}&t7={${query.t7}}&t8={${query.t8}}`
+        `https://tracker.cmclicks000.com/click.php${decodeURIComponent(
+          window.location.search
+        )}`
       );
       return;
     }

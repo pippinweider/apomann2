@@ -4,7 +4,10 @@ import { useState, useEffect } from "react";
 export const usePersistentQueryParams = () => {
   const router = useRouter();
   const [queries, setQueries] = useState(() => {
-    const storedQueries = localStorage.getItem("queries");
+    let storedQueries;
+    if (typeof window !== "undefined" && document.localStorage) {
+      storedQueries = localStorage?.getItem("queries");
+    }
     return storedQueries ? JSON.parse(storedQueries) : router.query;
   });
   console.log(router.query);
