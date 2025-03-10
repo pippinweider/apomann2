@@ -66,7 +66,7 @@ export default function Homepage({ setCartVisible, cartState, previousPage }) {
   useEffect(() => {
     // If there is a hash in the URL, scroll to the target element
     if (router.asPath.includes("#")) {
-      const elementId = router.asPath.split("#")[1];
+      const elementId = router.asPath.split("#")[1].split("?")[0];
       const element = document.getElementById(elementId);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });

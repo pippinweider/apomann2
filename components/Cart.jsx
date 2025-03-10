@@ -2,12 +2,12 @@ import Image from "next/image";
 import Button from "./Button";
 import { CartItem } from "./CartItem";
 import { Input } from "./Input";
-import { useRouter } from "next/router";
 import cn from "classnames";
 import Link from "next/link";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { ZipRegExp, EmailRegExp } from "../utilities/consts";
+import { usePersistentQueryParams } from "../utilities/usePersistentQueryParams";
 
 export const schema = yup.object().shape({
   vorname: yup.string().required("Required"),
@@ -28,8 +28,7 @@ export default function Cart({ setCartVisible, fadeCart, cartState }) {
     removeFromCart,
     updateCustomer,
   } = cartState || {};
-  const router = useRouter();
-  // Use Formik hook
+  const { navigateWithPersistedParams } = usePersistentQueryParams();
 
   const formik = useFormik({
     initialValues: {
@@ -45,7 +44,7 @@ export default function Cart({ setCartVisible, fadeCart, cartState }) {
     onSubmit: async (values) => {
       updateCustomer(values);
       fadeCart(false);
-      router.push("/quiz");
+      navigateWithPersistedParams("/quiz");
     },
   });
 
