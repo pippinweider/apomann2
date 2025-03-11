@@ -442,7 +442,7 @@ export default function Quiz() {
           </Button>
         </motion.div>
       );
-
+    console.log("window.location.search", window.location.search);
     if (i === steps.length - 1)
       return (
         currentStep === i && (
@@ -477,7 +477,8 @@ export default function Quiz() {
               <a
                 className="whitespace-nowrap absolute bottom-6 landscape:bottom-6 md:bottom-10 md:landscape:bottom-28 left-1/2 -translate-x-1/2 text-black font-semibold text-xl md:text-2xl border rounded-md py-6 landscape:py-6 md:py-8 px-14 md:px-16 border-black hover:bg-opacity-hover"
                 href={`https://tracker.cmclicks000.com/click.php${decodeURIComponent(
-                  window.location.search
+                  "?key=bcetixzy6o9hugqqpxzn&" +
+                    window.location.search.substring(1)
                 )}`}
               >
                 Zum Zahlung
