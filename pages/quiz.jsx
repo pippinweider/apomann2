@@ -442,7 +442,7 @@ export default function Quiz() {
           </Button>
         </motion.div>
       );
-    console.log("window.location.search", window.location.search);
+
     if (i === steps.length - 1)
       return (
         currentStep === i && (
