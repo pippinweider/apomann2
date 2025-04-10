@@ -28,6 +28,7 @@ module.exports = {
         accent500: "#0c9900",
         accent700: "#496a47",
         progress: "#53BE53",
+        lightBlue: "#577ab3",
       },
       height: {
         "1/2-screen": "50vh",
